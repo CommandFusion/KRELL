@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<gui>
+  <properties>
+    <project>Krell Demo Sample</project>
+    <designer>CommandFusion</designer>
+    <size autoposition="scale">
+      <portrait width="320" height="480" />
+      <landscape width="480" height="320" />
+    </size>
+    <autoposition />
+    <imagefolder>
+    </imagefolder>
+    <debug loaderrors="0" connectionerrors="0" />
+  </properties>
+  <systems>
+    <system name="KRELL" protocol="tcp" accept="0" ip="192.168.0.10" port="10208" origin="0" alwayson="1" idleTimeout="0" dialogTimeout="0" heartbeatMode="-1" heartbeatRx="" heartbeatTx="" textEncoding="" eom="" js="" connectionStatus="0" disconnectionStatus="0" startupCmd="" startupMacro="" offlinequeue="1" ssl="0">
+      <fb name="KRELL_FB" regex="." />
+    </system>
+  </systems>
+  <themes>
+    <theme type="text" name=".txt_sm"><![CDATA[ color: White; font-size: 12px; font-name: 'AvenirNext-Regular'; font-family: 'Avenir Next'; text-align: center; vertical-align: middle; font-weight: normal; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="button" name=".btn[state='0']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=30); -moz-opacity:0.3; opacity: 0.3; background-color: #0080FF; color: White; font-size: 12px; font-name: 'AvenirNext-Bold'; font-family: 'Avenir Next'; font-weight: bold; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="button" name=".btn[state='1']"><![CDATA[padding: 0px 0px 0px 0px;  filter: Alpha(Opacity=100); -moz-opacity:1; opacity: 1; background-color: #0080FF; color: White; font-size: 12px; font-name: 'AvenirNext-Bold'; font-family: 'Avenir Next'; font-weight: bold; font-style: none; text-decoration: none; text-align: center; vertical-align: middle; display: table-cell; box-sizing: border-box; -webkit-box-sizing: border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);]]></theme>
+    <theme type="text" name=".txt"><![CDATA[ color: White; font-size: 16px; font-name: 'AvenirNext-Bold'; font-family: 'Avenir Next'; text-align: center; vertical-align: middle; font-weight: bold; font-style: none; text-decoration: none; display: table-cell;]]></theme>
+    <theme type="gauge" name=".vert[state='0']"><![CDATA[ background-image: url(gauge_v_off.png);]]></theme>
+    <theme type="gauge" name=".vert[state='1']"><![CDATA[ background-image: url(gauge_v_on.png);]]></theme>
+  </themes>
+  <scripts>
+    <script name="KRELL.js" />
+  </scripts>
+  <page name="Startup" j="0" tags="" transition="" subtype="" time="0" ease="" start="1">
+    <portrait>
+      <txt j="0" x="0" y="39" w="320" h="32" t="txt_sm" wrap="False" l="0" tags="">Processing feedback from Krell units</txt>
+      <btn j="10" x="115" y="102" w="90" h="42" t="btn" flip="None" sim="0" l="0" s="1" tags="">
+        <inactive s="0">POWER
+STATE</inactive>
+        <active s="0">POWER
+STATE</active>
+      </btn>
+      <txt j="0" x="30" y="0" w="261" h="42" t="txt" wrap="False" l="0" tags="">Krell Demo</txt>
+      <slider j="2" d="0" x="135" y="205" w="50" h="200" min="0" max="100" decimals="0" unit="decimal" t="vert" sim="0" l="0" tags="" />
+    </portrait>
+    <landscape />
+  </page>
+</gui>
