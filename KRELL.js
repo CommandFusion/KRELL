@@ -12,12 +12,12 @@ CF.userMain = function() {
 		var byte4bit7 = (byte4 & 64 ? 1 : 0);
 		var byte4bit8 = (byte4 & 128 ? 1 : 0);
 
-		var volumeLevel = data.charCodeAt(12) // Get the 13th byte, 0-based
+		var volumeLevel = data.charCodeAt(12) // Get the 13th byte, 0-based. This will always be in range 0-151 decimal (\x00 to \x97)
 		CF.log("Power: " + powerState);
 		CF.log("Volume: " + volumeLevel);
 
-		CF.setJoin("d10", powerState);					// Set button state based on the power state, for button on digital join 10.
-		CF.setJoin("a2", (65535/255) * volumeLevel);	// Adjust slider on join 2 to show volume level.
-														// Sliders have a range of 0-65535, so we have to convert the value from byte range (0-255) first
+		CF.setJoin("d10", powerState);			// Set button state based on the power state, for button on digital join 10.
+		CF.setJoin("a2", (65535/151) * volumeLevel);	// Adjust slider on join 2 to show volume level, range 0-151 decimal.
+								// Sliders have a range of 0-65535, so we have to convert the value from volume range (0-151) first
 	});
 };
