@@ -1,6 +1,12 @@
 CF.userMain = function() {
 	// This is where we tell the code what feedback we want to process
 	CF.watch(CF.FeedbackMatchedEvent, "KRELL", "KRELL_FB", function(fbName, data) {
+		// Ensure we have enough data
+		if (data.length < 4) return;
+
+		// Ensure data begins with \x52 for byte positioning purposes
+		if (data.charCodeAt(0) != 82) data = "\x52" + data;
+
 		// Log the output of all incoming data in a readable format
 		CF.log(makeReadable(data));
 
